@@ -1,0 +1,137 @@
+########## LINKS ÚTIES ###########
+http://dontpad.com/prsantos/links_uteis
+#################################
+
+############ GITHUB #############
+Utilizar o github como repositório do curso
+Diretório Github: paulorns/python_fundamentals
+#################################
+
+############ Exercícios ############
+http://dontpad.com/prsantos
+#################################
+
+mkdir -> criar pasta
+rmdir -> remover pasta vazia
+rm -r -> remover pasta (ou qualquer arquivo) recursivamente (removendo sub-pastas ou arquivos)
+cd .. -> volta o diretório
+
+    -- Tarefas para fazer em casa --
+- Baixar a máquina virtual no PC
+- Configurar o git na VM
+- Fazer um clone do meu diretório do Github nessa VM
+
+VIRTUALENV
+- Ele simula pequenos python, dentro da sua máquina, onde você pode usar em determinados projetos.
+Então você poderá ter um módulo do python diferente para cada projeto que você tiver.
+-> você precisa instalar o pip no linux ainda.
+Utilize o comando "sudo apt install python3-pip"
+Depois o comando "sudo apt install virtualenv"
+Agora você deverá atualizar o pip, usanto o comando "sudo pip3 install --upgrade pip3"
+
+---
+Na sala de aula nós usamos o pip do Python2.
+Instalar o pip do Python2: "sudo apt install python-pip"
+Atualizar o pip: "sudo pip install --upgrade pip"
+Vamos instalar a virtualenv: "sudo pip install virtualenv"
+Acessar a pasta do projeto (se estiver fora da pasta): "cd python_fundamentals"
+Devemos criar o arquivo Git Ignore, para mostrar o GIT quais arquivos ele deve ignorar na hora do commit: "vi .gitignore"
+No VI, para inserir algo, clique na letra "i"
+Inserimos o "/venv"
+Pressione "esc" e ":wq" para salvar e sair
+Criando a virtualenv: "virtualenv -p python3 venv" -> Criando a virtualenv com um Python3
+Ativar ". venv/bin/activate"
+Desativar "deactivate"
+---
+
+Vamos utilizar agora o VS Code
+Abrir a pasta do projeto
+Commitar o .gitignore como "ADD gitignore"
+Dar um push no arquivo: Selecionar "..." e clicar em push
+Criar o arquivo aula01.py
+Instalar a extensão do Python no VS Code
+Habilitar o "AutoSave" no VS Code
+
+dontpad.com/pythonfundamentals
+
+Em algum lugar, onde deu problema de permissionamento, usaram o comando "chmod +x [nome do arquivo]"
+
+-----------
+--  12.11.2019  --
+
+-- Procurar por "vagrant"
+
+Instalar uma biblioteca externa: pip install wget
+- Para poder navegar na internet sem utilizar um navegador.
+
+-- '''  '''
+- Usado para documentar códigos, e não para comentários
+
+-- #
+- Usado para comentar no código
+- Para comentar mais de uma linha ao mesmo tempo, utilize: ctrl + /
+
+-----------
+--  13.11.2019  --
+kaggle.com -> Site para usar como exemplos para os datasets
+Google Colabs -> Dar uma olhada depois
+procurar sobre o import "pandas" -> Dar uma olhada nessa biblioteca
+
+-----------
+--  14.11.2019  --
+
+Procurar depois:
+- Experiência com Python
+- Frameworks web: Tornado, Muffin, Django, Aiohttp, outros
+- Testes automatizados (gostamos de pytest!)
+- Documentação de código e serviços
+- Desenvolvimento e consumo de APIs REST
+- Gitlab
+- Google Cloud Plataform
+
+Editor de código (analisar):
+- Jetbrains
+
+Terminal para linux:
+- Terminator
+
+-----------
+--  18.11.2019  --
+
+Instalação do pandas
+-> Estar com o ambiente virtual aberto.
+- pip install pandas
+
+-----------
+--  19.11.2019  --
+
+-----------
+-- 21.11.2019 --
+Se os arquivos do git corromper.
+Fazer uma cópia do projeto na máquina, deletar o projeto principal
+Inicializar o git no diretório: git init
+Realizar o clone através do github: git clone git@github.com:paulorns/python_fundamentals.git
+Copiar os arquivos do projeto principal para o diretório que você acabou de clonar.
+
+Procurar sobre: 
+- PostgreSQL
+- Eduardo Mendes (sobre Python)
+- Curso de estatística
+
+Exercícios para treinar em casa:
+Configurar na máquina:
+ - Python
+ - Git
+ - pip
+ - Virtualenv
+ - pandas
+
+Procurar "Project Manager" no VS Code
+
+-----------
+-- 22.11.2019 --
+Configurando o banco de dados postgres na máquina.
+- PostgreSQL
+- MySQL
+
+Ferramenta: pgModeler

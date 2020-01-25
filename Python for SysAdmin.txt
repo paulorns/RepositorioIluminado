@@ -1,0 +1,232 @@
+### Links Uteis ###
+
+http://dontpad.com/5214linux
+http://dontpad.com/5214linux/anotacoes_p
+
+
+https://www.invertexto.com/prsantos
+Senha: 4linux
+
+GitLab
+Login: paulo
+Senha: Poker26300
+e-mail: paulorns@gmail.com
+
+--------
+
+Comando salvador do Linux:
+Alt + SysRq (PrtSc)
+REISUB
+
+https://unixuniverse.com.br/linux/reisub
+
+--------
+
+Criando a chave SSH:import flask
+import docker
+
+docker_routes = flask.Blueprint(name='docker', import_name=__name__, url_prefix='/dcoker')
+
+@docker_routes.route('/')
+def index():
+    try:
+        docker_con = docker.from_env()
+ssh-keygen
+ls home/developer/.ssh
+cat /home/developer/.ssh/id_rsa.pub
+Copiar a chave e colocar no github
+
+--------
+
+Markdown Editor: https://stackedit.io/
+Criando a documentacao do projeto para os arquivos .md
+
+Obter as chaves das APIs abaixo:
+API Instagram
+API Twitter
+
+- Estudar um pouco mais sobre JSON: www.json.org/json-pt.html
+ - ou a W3School
+
+Tipos de requisicao:
+- Parametros via web: Metodo GET
+ - Exemplo: viacep
+
+Estrutura:
+ - Views: Tudo o que e' visivel para o usuario
+ - Controller: Trata das variaveis que serao utilizadas pela view
+ - Model: Estrutura de banco de dados
+ - Rotas: Caminhos de acesso (Ex: www.4linux.com.br)
+ - Aplicacao: 
+ - webserver: Servidor onde o projeto esta hospedado (Ex: Apache)
+ - Proxy: O carinha que controla "os acessos" (valida o tipo de porta da requiscao, realiza a troca a porta ou libera o acesso)
+ - Resource Manager: Controlador de recursos da maquina (valida qual o cluster disponivel para receber essa carga)
+ - S.O: Sistema operacional da maquina (Servidor)
+ - Gerenciador de dominio: registro.com.br DNS
+
+Utilizar o "Mozilla Firefox" como navegador para validar as APIs que retornam dados web
+
+Procurar sobre:
+- Rocket Chat -> Chat para quem trabalha com SysAdmin
+- Procurar mais sobre Docker
+- GitLab
+- React Js
+- Ler a apostila do curso - Python for SysAdmin
+- Docker
+- Desgin partner para Python
+
+MongoDB
+show dbs -> Mostra as DataBases
+use nome_data_base -> criar as DataBases
+show collections -> Mostrar as colecoes
+show tables -> Mostrar as tabelas
+db.tabela.insert({"nome":"Paulo", "Idade":"26"}) -> Inserir dados em uma tabela
+
+DOCKER - (suarm - balanceamento para o docker)
+docker install windows -> https://docs.docker.com/docker-for-windows/install/
+Imagens oficiais Docker -> https://hub.docker.com/
+
+Passo a Passo:
+1. Instalar o Docker na maquina
+2. sudo docker run --name hello hello-world
+# docker run --name nome_para_maquina maquina_do_docker
+# Adicionar o usuario no grupo do docker: sudo usermod -aG docker developer
+# Adicionar esse grupo apos instalar o docker e sair da sessao aberta do docker
+# Mostrar o status dos containers: sudo docker ps
+# Mostra todos os containers da maquina: sudo docker ps -a
+# Executando o python como aplicacao no Docker: sudo docker run -it python bash
+Exercicio -- # Subir uma imagem do Jupyter no Docker
+
+Comando para construir a imagem do docker: docker build -t nome_do_container local_do_docfile
+
+# liberar o terminal do linux: ctrl + p + q
+# matar o docker: ctrl + d
+# voltar para o docker: sudo docker attach id_do_docker
+# Matar os container parados e em execucao: sudo docker rm -f $(sudo docker ps -qa)
+
+# Criar o grupo do docker:
+# sudo --help
+# sudo addgroup --system docker
+# sudo adduser $USER docker
+# newgrp docker
+# docker ps
+
+# Arquivo usado (Executando_docker.py) - Aula05
+# Instalar o docker no virtualenv
+# pip3 install docker
+
+# Para visualizar as container (em execucao ou paradas)
+# docker container ls
+# & -> Coloca a execucao em segundo plano
+
+# Nomear containers
+# docker run -dit --name nome_ficticio imagem_docker
+
+# print(client.containers.list(all=True)) # Listando os containers que possui na m'aquina
+# container = client.containers.get('jolly_torvalds')
+# print(container.short_id) # Pegando o ID do container
+# print(container.name) # Pegando o nome do container
+# print(container.image.tags) # Pegando a imagem do container
+# print(container.status) # Mostrando o status do container
+# print(container.image.tags[0]) # Pegando a imagem do container, mostrando o resultado da lista
+
+Exercicio:
+- Listar mais de um container no Dashboard
+
+- Criar um docker jenkins com o nome "jenkins_python" em modo stealth: docker run -dit -p 8080:8080 --name jenkins_python jenkins
+- Para validar se o docker do jenkins subiu, abrir o "localhost:8080" no seu navegador
+- Para pegar a senha do jenkins: docker exec -it jenkins_python cat /var/jenkins_home/secrets/initialAdminPassword
+
+- comando: ps aux
+# Validar aos servicos que estao sendo executados
+
+- comando: sudo ss-nltp
+# Validar as portas que estao sendo usadas
+
+05/12/2019
+- Abrir o terminal
+# docker pull jenkins/jenkins
+- Montar o arquivo .yml (YAML)
+# sudo apt install docker-compose
+# docker-compose up -d (voce deve executar esse comando dentro da pasta onde esta o projeto)
+Se der erro de permissionamento, executar o comando abaixo
+# docker run -dit -p 8080:8080 -p 50000:50000 -v $PWD/dados_jenkins:/var/jenkins_home --name jenkins_aula jenkins/jenkins
+Se der erro novamente, tirar a parte do volumes
+# docker run -dit -p 8080:8080 -p 50000:50000 --name jenkins_aula jenkins/jenkins
+Desinstalar o docker compose
+# sudo apt remove docker-compose --purge
+Para pegar a senha do jenkins: docker exec -it jenkins_aula cat /var/jenkins_home/secrets/initialAdminPassword
+- Instalar os pluggings recomendados
+- criar um usuario e senha (no curso usamos o "admin", tanto para usuario quanto para senha)
+- Configuracao de instancia, clicar em "Save & Continue"
+- Novo Jobs
+- Selecionar Pipeline > Continuar
+- Scripts:
+pipeline {
+    agent any;
+    stages {
+        stage('Preparando o ambiente'){
+            steps{
+                echo "Preparando...";
+                sleep 5;
+            }
+        }
+        stage('Construindo o projeto'){
+            steps{
+                echo "buildando...";
+                sleep 5;
+            }
+        }
+        stage('Resultado'){
+            steps{
+                echo "Sucesso";
+            }
+        }
+    }
+}
+
+Salvar/Executar
+Construir agora > Clicar na bolinha que vai aparecer abaixo
+Ver saida de log
+
+Novo job > Nome: Teste job
+Selecionar: pipeline
+
+- Abrir o terminal
+- Acessar a env
+# pip3 install jenkins
+# pip3 install python-jenkins
+
+- 06.12.2019 -
+Rodar o Jenkins_Python
+# docker start jenkins_python
+ou
+# docker run -dit jenkins_python
+(Se funcionar...)
+
+Exercicio:
+Fazer com que a dashboard liste os dockers que existem na sua m'aquina, criar o botao para iniciar ou parar cada um.
+
+Instalando o ldap
+- Abre o terminal:
+# docker pull osixia/openldap
+# Dentro da Env: pip3 install ldap3
+
+Fechar o projeto:
+Adicionar no codigo: #!/usr/bin/env python3
+# mv app.py app
+# chmod +x app
+Executar o arquivo
+# ./app
+
+Mudar a variavel de ambiente: PATH=$PATH:$PWD
+Para mudar a forma de execucao do "./"
+Agora eh so colocar "app" para executar
+
+
+Criar a virtualenv
+Instalar os requisitos
+# pip install -r requisitos.txt
+
+Criar o docker
+# docker build -t projeto/boladasso .
